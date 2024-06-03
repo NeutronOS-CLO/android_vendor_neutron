@@ -9,6 +9,10 @@ include vendor/neutron/configs/BoardConfigNeutron.mk
 PRODUCT_PACKAGES += \
     Dialer
 
+# Datura - Firewall
+PRODUCT_PACKAGES += \
+    Datura
+
 # Enable support for APEX updates
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
