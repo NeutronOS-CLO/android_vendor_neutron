@@ -1,0 +1,248 @@
+kernel_headers {
+    name: "device_kernel_headers_system",
+}
+
+soong_config_module_type {
+    name: "target_shim_libs",
+    module_type: "cc_defaults",
+    config_namespace: "neutronGlobalVars",
+    value_variables: ["target_ld_shim_libs"],
+    properties: ["cppflags"],
+}
+
+soong_config_module_type {
+    name: "powershare",
+    module_type: "cc_defaults",
+    config_namespace: "neutronGlobalVars",
+    value_variables: [
+        "target_powershare_path",
+        "target_powershare_enabled",
+        "target_powershare_disabled",
+    ],
+    properties: ["cppflags"],
+}
+
+powershare {
+    name: "powershare_defaults",
+    soong_config_variables: {
+        target_powershare_path: {
+            cppflags: ["-DPOWERSHARE_PATH=\"%s\""],
+        },
+        target_powershare_enabled: {
+            cppflags: ["-DPOWERSHARE_ENABLED=\"%s\""],
+        },
+        target_powershare_disabled: {
+            cppflags: ["-DPOWERSHARE_DISABLED=\"%s\""],
+        },
+    },
+}
+
+target_shim_libs {
+    name: "shim_libs_defaults",
+    soong_config_variables: {
+        target_ld_shim_libs: {
+            cppflags: ["-DLD_SHIM_LIBS=\"%s\""],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "gralloc_10_usage_bits",
+    module_type: "cc_defaults",
+    config_namespace: "neutronGlobalVars",
+    value_variables: ["additional_gralloc_10_usage_bits"],
+    properties: ["cppflags"],
+}
+
+gralloc_10_usage_bits {
+    name: "gralloc_10_usage_bits_defaults",
+    soong_config_variables: {
+        additional_gralloc_10_usage_bits: {
+            cppflags: ["-DADDNL_GRALLOC_10_USAGE_BITS=%s"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "gralloc_handle_custom_content_md_reserved_size",
+    module_type: "cc_defaults",
+    config_namespace: "neutronGlobalVars",
+    bool_variables: ["gralloc_handle_has_custom_content_md_reserved_size"],
+    properties: ["export_cflags"],
+}
+
+gralloc_handle_custom_content_md_reserved_size {
+    name: "gralloc_handle_has_custom_content_md_reserved_size_defaults",
+    soong_config_variables: {
+        gralloc_handle_has_custom_content_md_reserved_size: {
+            export_cflags: ["-DGRALLOC_HANDLE_HAS_CUSTOM_CONTENT_MD_RESERVED_SIZE"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "gralloc_handle_reserved_size",
+    module_type: "cc_defaults",
+    config_namespace: "neutronGlobalVars",
+    bool_variables: ["gralloc_handle_has_reserved_size"],
+    properties: ["export_cflags"],
+}
+
+gralloc_handle_reserved_size {
+    name: "gralloc_handle_has_reserved_size_defaults",
+    soong_config_variables: {
+        gralloc_handle_has_reserved_size: {
+            export_cflags: ["-DGRALLOC_HANDLE_HAS_RESERVED_SIZE"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "gralloc_handle_ubwcp_format",
+    module_type: "cc_defaults",
+    config_namespace: "neutronGlobalVars",
+    bool_variables: ["gralloc_handle_has_ubwcp_format"],
+    properties: ["export_cflags"],
+}
+
+gralloc_handle_ubwcp_format {
+    name: "gralloc_handle_has_ubwcp_format_defaults",
+    soong_config_variables: {
+        gralloc_handle_has_ubwcp_format: {
+            export_cflags: ["-DGRALLOC_HANDLE_HAS_UBWCP_FORMAT"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "vendor_init",
+    module_type: "cc_defaults",
+    config_namespace: "neutronGlobalVars",
+    value_variables: ["target_init_vendor_lib"],
+    properties: ["whole_static_libs"],
+}
+
+vendor_init {
+    name: "vendor_init_defaults",
+    soong_config_variables: {
+        target_init_vendor_lib: {
+            whole_static_libs: ["%s"],
+        },
+    },
+}
+
+// Target platform agnostic config modules
+soong_config_module_type {
+    name: "aapt_version_code",
+    module_type: "java_defaults",
+    config_namespace: "neutronGlobalVars",
+    value_variables: ["aapt_version_code"],
+    properties: ["aaptflags"],
+}
+
+aapt_version_code {
+    name: "aapt_version_code_defaults",
+    soong_config_variables: {
+        aapt_version_code: {
+            aaptflags: [
+                "--version-code",
+                "%s",
+            ],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "extended_compress_format",
+    module_type: "cc_defaults",
+    config_namespace: "neutronQcomVars",
+    bool_variables: ["supports_extended_compress_format"],
+    properties: ["cflags"],
+}
+
+extended_compress_format {
+    name: "extended_compress_format_defaults",
+    soong_config_variables: {
+        supports_extended_compress_format: {
+            cflags: ["-DENABLE_EXTENDED_COMPRESS_FORMAT"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "egl_display_array",
+    module_type: "cc_defaults",
+    config_namespace: "neutronGlobalVars",
+    bool_variables: ["uses_egl_display_array"],
+    properties: ["cflags"],
+}
+
+egl_display_array {
+    name: "egl_display_array_defaults",
+    soong_config_variables: {
+        uses_egl_display_array: {
+            cflags: ["-DEGL_DISPLAY_ARRAY"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "surfaceflinger_qcom_extensions",
+    module_type: "cc_defaults",
+    config_namespace: "neutronQcomVars",
+    value_variables: ["qcom_display_headers_namespace"],
+    properties: [
+        "cppflags",
+        "header_libs",
+    ],
+}
+
+surfaceflinger_qcom_extensions {
+    name: "surfaceflinger_qcom_ext_defaults",
+    soong_config_variables: {
+        qcom_display_headers_namespace: {
+            cppflags: ["-DQCOM_UM_FAMILY"],
+            header_libs: ["//%s:display_intf_headers"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "surfaceflinger_udfps_lib",
+    module_type: "cc_defaults",
+    config_namespace: "neutronGlobalVars",
+    value_variables: ["target_surfaceflinger_udfps_lib"],
+    properties: [
+        "cppflags",
+        "whole_static_libs",
+    ],
+}
+
+surfaceflinger_udfps_lib {
+    name: "surfaceflinger_udfps_lib_defaults",
+    soong_config_variables: {
+        target_surfaceflinger_udfps_lib: {
+            cppflags: ["-DTARGET_PROVIDES_UDFPS_LIB"],
+            whole_static_libs: ["%s"],
+        },
+    },
+}
+
+soong_config_module_type {
+    name: "power_libperfmgr",
+    module_type: "cc_defaults",
+    config_namespace: "neutronGlobalVars",
+    value_variables: ["target_power_libperfmgr_mode_extension_lib"],
+    properties: [
+        "whole_static_libs",
+    ],
+}
+
+power_libperfmgr {
+    name: "power_libperfmgr_defaults",
+    soong_config_variables: {
+        target_power_libperfmgr_mode_extension_lib: {
+            whole_static_libs: ["%s"],
+        },
+    },
+}
