@@ -84,3 +84,10 @@ PRODUCT_BOOT_JARS += \
     tcmiface \
     telephony-ext
 endif
+
+# Miscellaneous
+PRODUCT_PACKAGES += \
+    libcurl.vendor \
+    libjsoncpp.vendor \
+    libsqlite.vendor \
+    libdumpstateutil.vendor
