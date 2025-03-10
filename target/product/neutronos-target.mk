@@ -13,6 +13,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Datura
 
+# microG
+PRODUCT_PACKAGES += \
+    GmsCore \
+    GsfProxy \
+    FakeStore
+
 # Enable support for APEX updates
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
