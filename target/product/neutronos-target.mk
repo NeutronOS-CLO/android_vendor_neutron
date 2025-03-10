@@ -90,4 +90,6 @@ PRODUCT_PACKAGES += \
     libcurl.vendor \
     libjsoncpp.vendor \
     libsqlite.vendor \
-    libdumpstateutil.vendor
+    libdumpstateutil.vendor \
+    libpng.vendor \
+    libdumpstateutil.vendor \
