@@ -36,6 +36,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.face.sense_service=$(TARGET_SUPPORTS_64_BIT_APPS)
 
+# TouchGestures
+PRODUCT_PACKAGES += \
+    TouchGestures
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     e2fsck \
