@@ -5,6 +5,9 @@ $(warning "Snapdragon Clang configuration included")
 include vendor/neutron/build/tasks/macros.mk
 include vendor/neutron/configs/BoardConfigNeutron.mk
 
+# NeutronOS SEPolicy
+$(call inherit-product, vendor/neutron/sepolicy/sepolicy.mk)
+
 # AOSP Dialer
 PRODUCT_PACKAGES += \
     Dialer
