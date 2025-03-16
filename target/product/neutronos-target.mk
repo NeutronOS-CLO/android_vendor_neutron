@@ -22,6 +22,17 @@ PRODUCT_PACKAGES += \
 # Enable support for APEX updates
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
+# Paranoid Sense
+PRODUCT_PACKAGES += \
+    ParanoidSense
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
+
+# Enable Sense service for 64-bit only
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    ro.face.sense_service=$(TARGET_SUPPORTS_64_BIT_APPS)
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     e2fsck \
