@@ -40,6 +40,10 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
 PRODUCT_PACKAGES += \
     TouchGestures
 
+# GameSpace
+PRODUCT_PACKAGES += \
+    GameSpace
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     e2fsck \
