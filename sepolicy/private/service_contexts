@@ -1,2 +1,5 @@
 # DC Dimming
 dc_dim                              u:object_r:dc_dimming_service:s0
+
+# LineageOS hardware
+lineagehardware                           u:object_r:lineage_hardware_service:s0
