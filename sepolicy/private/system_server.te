@@ -4,3 +4,6 @@ add_service(system_server, dc_dimming_service);
 
 # Linearmotor Vibrator
 add_service(system_server, linearmotor_vibrator_service);
+
+# Lineage touch
+hal_client_domain(system_server, hal_lineage_touch)
